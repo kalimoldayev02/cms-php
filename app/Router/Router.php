@@ -2,6 +2,9 @@
 
 namespace App\Router;
 
+use App\Controller\ControllerInterface;
+use App\System\Config;
+
 class Router
 {
     private array $routes = [
@@ -11,32 +14,41 @@ class Router
 
     public function __construct()
     {
-        $this->initRoute();
     }
 
-    public function dispatch(string $uri): void
+    public function dispatch(string $uri, string $method): void
     {
-        $route = $this->getRoutes();
+        $route = $this->findRoute($uri, $method);
 
-        $route[$uri]();
+        dd($route, 'dispatch');
+        dd($route);
+
+
+        $route->getAction()();
     }
 
-    public function initRoute()
+    private function findRoute(string $uri, string $httpMethod)
     {
-        $routes = $this->getRoutes();
+        $result = Config::getInstance()->getRoutesConfig()[$httpMethod][$uri] ?? null;
+        dd(current((array)$result));
+        foreach ($result as $item) {
+            dd($item);
+        };
 
-        foreach ($routes as $route) {
-            $this->routes[$route->getMethod()][$route->getUri()] = $route;
-        }
-        dd($this->routes);
+        return $result;
     }
-
 
     /**
      * @return Route[];
      */
-    public function getRoutes(): array
+    public function getRoutes()
     {
-        return require_once APP_PATH.'/config/routes.php';
+        return 'cas';
+    }
+
+    private function notFound(): void
+    {
+        echo '404 | not found';
+        exit;
     }
 }

@@ -6,39 +6,29 @@ namespace App\Router;
  *  базаый класс для обработки запросов
  * */
 
+use App\Controller\ControllerInterface;
+
 class Route
 {
-    private function __construct(
-        private string $uri, // адрес
-        private string $method, // http метод
-        private        $action // то что обрабатывает маршрут
-    )
+    private function __construct(private $controller, private string $method)
     {
     }
 
     /*
      * создает instance для GET
      * */
-    public static function get(string $uri, $action): static
+    public static function get(string $controller, string $method): static
     {
-        return new static($uri, 'GET', $action);
+        return new static($controller, $method);
     }
 
 
     /*
      * создает instance для POST
      * */
-    public static function post(string $uri, $action): static
+    public static function post(string $controller, string $method): static
     {
-        return new static($uri, 'POST', $action);
-    }
-
-    /**
-     * @return string
-     */
-    public function getUri(): string
-    {
-        return $this->uri;
+        return new static($controller, $method);
     }
 
     /**
@@ -52,8 +42,8 @@ class Route
     /**
      * @return mixed
      */
-    public function getAction()
+    public function getController(): mixed
     {
-        return $this->action;
+        return $this->controller;
     }
 }

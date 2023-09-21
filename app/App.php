@@ -13,7 +13,6 @@ class App
     public function run()
     {
         $router = new Router();
-        $uri = $_SERVER['REQUEST_URI'];
-        $router->dispatch($uri);
+        $router->dispatch($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
     }
 }

@@ -1,9 +1,10 @@
 <?php
 
 use App\Router\Route;
+use App\Controller\HomeController;
 
 return [
-    Route::get('/home', function () {
-        include_once APP_PATH.'/views/pages/home.php';
-    }),
+    'GET' => [
+        '/home' => Route::get(HomeController::class, 'index')
+    ],
 ];
