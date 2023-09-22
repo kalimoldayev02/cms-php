@@ -16,34 +16,28 @@ class Router
     {
     }
 
-    public function dispatch(string $uri, string $method): void
+    public function dispatch(string $uri, string $httpMethod): void
     {
-        $route = $this->findRoute($uri, $method);
+        $route = $this->findRoute($uri, $httpMethod);
+        if ($route) {
+            $method = $route->getMethod();
+            $controller = $route->getController();
+            $controller = new $controller();
 
-        dd($route, 'dispatch');
-        dd($route);
-
-
-        $route->getAction()();
-    }
-
-    private function findRoute(string $uri, string $httpMethod)
-    {
-        $result = Config::getInstance()->getRoutesConfig()[$httpMethod][$uri] ?? null;
-        dd(current((array)$result));
-        foreach ($result as $item) {
-            dd($item);
-        };
-
-        return $result;
+            $controller->$method();
+            exit;
+        }
+        $this->notFound();
     }
 
     /**
-     * @return Route[];
+     * @return ?Route;
      */
-    public function getRoutes()
+    private function findRoute(string $uri, string $httpMethod): ?object
     {
-        return 'cas';
+        $result = Config::getInstance()->getRoutesConfig()[$httpMethod][$uri] ?? null;
+
+        return $result;
     }
 
     private function notFound(): void

@@ -23,9 +23,6 @@ class Config
 
     public function getRoutesConfig($test = false)
     {
-        if ($test) {
-            dd(self::$configs);
-        }
         if (isset(self::$configs['routes'])) {
             return self::$configs['routes'];
         };

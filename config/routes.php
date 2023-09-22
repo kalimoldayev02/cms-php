@@ -1,10 +1,10 @@
 <?php
 
 use App\Router\Route;
-use App\Controller\HomeController;
+use App\Controller\Get\HomeController;
 
 return [
     'GET' => [
-        '/home' => Route::get(HomeController::class, 'index')
+        '/home' => Route::get(HomeController::class, 'execute')
     ],
 ];

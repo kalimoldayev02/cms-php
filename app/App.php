@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Request;
 use App\Router\Router;
 
 class App
@@ -13,6 +14,8 @@ class App
     public function run()
     {
         $router = new Router();
-        $router->dispatch($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
+        $request = Request::make();
+
+        $router->dispatch($request->getUri(), $request->getHttpMethod());
     }
 }
