@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Router;
+namespace App\Kernel\Router;
 
 use App\Controller\ControllerInterface;
 use App\System\Config;
