@@ -5,6 +5,6 @@ use App\Controller\Get\HomeController;
 
 return [
     'GET' => [
-        '/home' => Route::get(HomeController::class, 'execute')
+        '/home' => Route::get(HomeController::class, 'index')
     ],
 ];

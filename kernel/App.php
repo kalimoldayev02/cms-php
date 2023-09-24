@@ -13,7 +13,8 @@ class App
      * */
     public function run()
     {
-        $router = new Router();
+        $view = new View\View();
+        $router = new Router($view);
         $request = Request::make();
 
         $router->dispatch($request->getUri(), $request->getHttpMethod());

@@ -2,11 +2,9 @@
 
 namespace App\Kernel\Router;
 
-/*
+/**
  *  базаый класс для обработки запросов
- * */
-
-use App\Controller\ControllerInterface;
+ */
 
 class Route
 {

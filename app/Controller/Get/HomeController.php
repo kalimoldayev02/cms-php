@@ -2,12 +2,12 @@
 
 namespace App\Controller\Get;
 
-use App\Controller\ControllerInterface;
+use App\Controller\Controller;
 
-class HomeController implements ControllerInterface
+class HomeController extends Controller
 {
-    public function execute()
+    public function index()
     {
-        include_once APP_PATH . '/views/pages/home.php';
+        $this->view->page('home');
     }
 }
