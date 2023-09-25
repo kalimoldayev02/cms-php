@@ -3,6 +3,7 @@
 namespace App\Kernel\Router;
 
 use App\Controller\Controller;
+use App\Kernel\Http\Request;
 use App\Kernel\View\View;
 use App\System\Config;
 
@@ -13,7 +14,7 @@ class Router
         'POST' => [],
     ];
 
-    public function __construct(private View $view)
+    public function __construct(private View $view, private Request $request)
     {
     }
 
@@ -24,7 +25,7 @@ class Router
             $method = $route->getMethod();
             $controller = $route->getController();
             /** @var Controller $controller */
-            $controller = new $controller($this->view);
+            $controller = new $controller($this->view, $this->request);
 
             $controller->$method();
             exit;

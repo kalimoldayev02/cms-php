@@ -2,6 +2,8 @@
 
 namespace App\Kernel\Http;
 
+use App\Kernel\Validator\Validator;
+
 class Request
 {
     protected function __construct(
@@ -10,13 +12,14 @@ class Request
         private readonly array $server,
         private readonly array $files,
         private readonly array $cookies,
+        private readonly Validator $validator,
     )
     {
     }
 
-    public static function make(): static
+    public static function make(Validator $validator): static
     {
-        return new static($_GET, $_POST, $_SERVER, $_FILES, $_COOKIE);
+        return new static($_GET, $_POST, $_SERVER, $_FILES, $_COOKIE, $validator);
     }
 
     public function getUri(): string
@@ -27,5 +30,20 @@ class Request
     public function getHttpMethod(): string
     {
         return $this->server['REQUEST_METHOD'];
+    }
+
+    public function get(): array
+    {
+        return $this->get;
+    }
+
+    public function post(): array
+    {
+        return $this->post;
+    }
+
+    public function input(string $key, $default = null)
+    {
+        return $this->post[$key] ?? $this->get[$key] ?? $default;
     }
 }

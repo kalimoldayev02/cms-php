@@ -7,15 +7,16 @@ use App\Kernel\Router\Router;
 
 class App
 {
-    /*
+    /**
      * получаем все роуты с конфиг файла.
      * и вызываем функцию
-     * */
+     */
     public function run()
     {
         $view = new View\View();
-        $router = new Router($view);
-        $request = Request::make();
+        $validator = new Validator\Validator();
+        $request = Request::make($validator);
+        $router = new Router($view, $request);
 
         $router->dispatch($request->getUri(), $request->getHttpMethod());
     }

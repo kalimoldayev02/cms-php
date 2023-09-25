@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Kernel\Http\Request;
 use App\Kernel\View\View;
 
 /**
@@ -10,7 +11,7 @@ use App\Kernel\View\View;
 
 abstract class Controller
 {
-    public function __construct(protected View $view)
+    public function __construct(protected View $view, protected Request $request)
     {
     }
 }
