@@ -12,7 +12,9 @@ class MovieController extends Controller
     }
     public function create()
     {
-        dd($this->request->get(), $this->request->get());
-        $this->view->page('admin/movies/create');
+        $rules = [
+            'title' => ['min:3', 'required', 'max:25']
+        ];
+        $this->request->validate()->validate($this->request->post(), $rules);
     }
 }

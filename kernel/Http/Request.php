@@ -12,7 +12,7 @@ class Request
         private readonly array $server,
         private readonly array $files,
         private readonly array $cookies,
-        private readonly Validator $validator,
+        private Validator $validator,
     )
     {
     }
@@ -45,5 +45,10 @@ class Request
     public function input(string $key, $default = null)
     {
         return $this->post[$key] ?? $this->get[$key] ?? $default;
+    }
+
+    public function validate(): Validator
+    {
+        return $this->validator;
     }
 }
