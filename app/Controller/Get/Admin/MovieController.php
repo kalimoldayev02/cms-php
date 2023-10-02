@@ -3,6 +3,7 @@
 namespace App\Controller\Get\Admin;
 
 use App\Controller\Controller;
+use App\System\Session;
 
 class MovieController extends Controller
 {
@@ -12,9 +13,15 @@ class MovieController extends Controller
     }
     public function create()
     {
-        $rules = [
+        $isValid = $this->request->validate([
             'title' => ['min:3', 'required', 'max:25']
-        ];
-        $this->request->validate()->validate($this->request->post(), $rules);
+        ]);
+
+        if (!$isValid) {
+            foreach ($this->request->getErrors() as $key => $errors) {
+                Session::getInstance()->set($key, $errors);
+            }
+            $this->redirect->to('/admin/movies/create');
+        }
     }
 }

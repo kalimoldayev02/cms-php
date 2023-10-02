@@ -2,6 +2,8 @@
 
 namespace App\Kernel\View;
 
+use App\System\Session;
+
 /**
  * класс для вызова представлений в контроллере
  */
@@ -12,7 +14,8 @@ class View
         $path = APP_PATH . "/views/pages/{$name}.php";
         if (file_exists($path)) {
             extract([
-                'view' => $this
+                'view' => $this,
+                'session' => Session::getInstance(),
             ]);
             include_once $path;
             return;

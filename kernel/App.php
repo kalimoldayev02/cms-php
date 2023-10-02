@@ -2,6 +2,7 @@
 
 namespace App\Kernel;
 
+use App\Kernel\Http\Redirect;
 use App\Kernel\Http\Request;
 use App\Kernel\Router\Router;
 
@@ -16,7 +17,8 @@ class App
         $view = new View\View();
         $validator = new Validator\Validator();
         $request = Request::make($validator);
-        $router = new Router($view, $request);
+        $redirect = new Redirect();
+        $router = new Router($view, $request, $redirect);
 
         $router->dispatch($request->getUri(), $request->getHttpMethod());
     }
