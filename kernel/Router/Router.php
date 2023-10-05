@@ -5,52 +5,47 @@ namespace App\Kernel\Router;
 use App\Controller\Controller;
 use App\Kernel\Http\Redirect;
 use App\Kernel\Http\Request;
-use App\Kernel\View\View;
-use App\System\Config;
+use App\Kernel\System\Json;
+use App\Kernel\Http\Response;
 
 class Router
 {
-    private array $routes = [
-        'GET' => [],
-        'POST' => [],
-    ];
-
     public function __construct(
-        private View     $view,
         private Request  $request,
         private Redirect $redirect,
+        private Response $response,
     )
     {
     }
 
     public function dispatch(string $uri, string $httpMethod): void
     {
-        $route = $this->findRoute($uri, $httpMethod);
-        if ($route) {
-            $method = $route->getMethod();
-            $controller = $route->getController();
-            /** @var Controller $controller */
-            $controller = new $controller($this->view, $this->request, $this->redirect);
+        $routes = Route::getRoutes();
 
-            $controller->$method();
+        if ($this->isExistRoute($uri, $httpMethod, $routes)) {
+            [$controller, $action] = $routes[$httpMethod][$uri];
+
+            /** @var Controller $controller */
+            $controller = new $controller($this->request, $this->redirect, $this->response);
+
+            $controller->$action();
             exit;
         }
         $this->notFound();
     }
 
     /**
-     * @return ?Route;
+     * @return bool;
      */
-    private function findRoute(string $uri, string $httpMethod): ?object
+    private function isExistRoute(string $uri, string $httpMethod, array $routes): bool
     {
-        $result = Config::getInstance()->getRoutesConfig()[$httpMethod][$uri] ?? null;
-
-        return $result;
+        return isset($routes[$httpMethod][$uri]);
     }
 
     private function notFound(): void
     {
-        echo '404 | not found';
+        header('Content-type: application/json');
+        echo Json::jsonEncode('404 | not found');
         exit;
     }
 }

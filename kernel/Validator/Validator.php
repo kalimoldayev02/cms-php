@@ -13,7 +13,6 @@ class Validator
         $this->errors = [];
 
         foreach ($rules as $fieldKey => $rule) {
-
             foreach ($rule as $ruleItem) {
                 $ruleItem = explode(':', $ruleItem);
                 $ruleName = $ruleItem[0];
@@ -32,12 +31,12 @@ class Validator
 
     private function validateRule(string $fieldKey, string $ruleName, string $ruleValue = null): ?string
     {
-        $fieldValue = $this->data[$fieldKey];
+        $fieldValue = $this->data[$fieldKey] ?? null;
 
         return match ($ruleName) {
             'required' => empty($fieldValue) ? "Field $fieldKey is required" : null,
-            'min' => strlen($fieldValue) < $ruleValue ? "Field $fieldKey must be at least $ruleValue characters long" : null,
-            'max' => strlen($fieldValue) > $ruleValue ? "Field $fieldKey must be at most $ruleValue characters long" : null,
+            'min' => is_null($fieldValue) || strlen($fieldValue) < $ruleValue ? "Field $fieldKey must be at least $ruleValue characters long" : null,
+            'max' => is_null($fieldValue) || strlen($fieldValue) > $ruleValue ? "Field $fieldKey must be at most $ruleValue characters long" : null,
             'email' => !filter_var($fieldValue, FILTER_VALIDATE_EMAIL) ? "Field $fieldKey must be a valid email" : null,
             default => null,
         };

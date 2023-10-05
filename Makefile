@@ -8,3 +8,6 @@ down:
 
 init:
 	docker exec -it $(PHP_FPM_IMAGE) composer install
+
+dump-autoload:
+	docker exec -it $(PHP_FPM_IMAGE) composer dump-autoload -o

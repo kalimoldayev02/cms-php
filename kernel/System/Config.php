@@ -1,6 +1,6 @@
 <?php
 
-namespace App\System;
+namespace App\Kernel\System;
 
 class Config
 {
@@ -13,12 +13,6 @@ class Config
         self::$configs = [
             'routes' => include_once APP_PATH . '/config/routes.php',
         ];
-    }
-
-
-    public function getConfig(): array
-    {
-        return self::$configs;
     }
 
     public function getRoutesConfig($test = false)

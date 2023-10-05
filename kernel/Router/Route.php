@@ -5,28 +5,21 @@ namespace App\Kernel\Router;
 /**
  *  базаый класс для обработки запросов
  */
-
 class Route
 {
-    private function __construct(private $controller, private string $method)
+    private static array $routes = [];
+
+    private function __construct(private $url, private $controller, private string $action, string $httpMethod)
     {
+        self::$routes[$httpMethod][$this->url] = [$controller, $action];
     }
 
     /*
      * создает instance для GET
      * */
-    public static function get(string $controller, string $method): static
+    public static function get(string $url, string $controller, string $action): static
     {
-        return new static($controller, $method);
-    }
-
-
-    /*
-     * создает instance для POST
-     * */
-    public static function post(string $controller, string $method): static
-    {
-        return new static($controller, $method);
+        return new static($url, $controller, $action, 'GET');
     }
 
     /**
@@ -43,5 +36,26 @@ class Route
     public function getController(): mixed
     {
         return $this->controller;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl(): string
+    {
+        return $this->url;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getRoutes(): array
+    {
+        return self::$routes;
+    }
+
+    public function getControllerByRoute()
+    {
+        
     }
 }

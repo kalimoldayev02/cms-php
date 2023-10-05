@@ -1,6 +1,6 @@
 <?php
 
-namespace App\System;
+namespace App\Kernel\System;
 
 trait Singleton
 {
