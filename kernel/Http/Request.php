@@ -57,6 +57,11 @@ class Request
         return $this->validator->validate($this->post(), $rules);
     }
 
+    public function validated(): array
+    {
+        return $this->validator->validated();
+    }
+
     public function getErrors(): array
     {
         return $this->validator->getErrors();

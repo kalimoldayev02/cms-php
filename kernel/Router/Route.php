@@ -24,6 +24,14 @@ class Route
         return new static($url, $controller, $action, 'GET');
     }
 
+    /*
+     * создает instance для POST
+     * */
+    public static function post(string $url, string $controller, string $action): static
+    {
+        return new static($url, $controller, $action, 'POST');
+    }
+
     /**
      * @return string
      */

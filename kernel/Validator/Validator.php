@@ -10,6 +10,7 @@ namespace App\Kernel\Validator;
 class Validator
 {
     private array $data;
+    private array $validatedData;
     private array $errors;
 
     public function validate(array $data, array $rules): bool
@@ -50,5 +51,10 @@ class Validator
     public function getErrors(): array
     {
         return $this->errors;
+    }
+
+    public function validated(): array
+    {
+        return $this->data;
     }
 }
