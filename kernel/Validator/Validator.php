@@ -2,6 +2,11 @@
 
 namespace App\Kernel\Validator;
 
+/**
+ * Description of Validator
+ *
+ * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ */
 class Validator
 {
     private array $data;

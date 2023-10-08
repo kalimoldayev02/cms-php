@@ -2,6 +2,11 @@
 
 namespace App\Kernel\System;
 
+/**
+ * Description of Singleton
+ *
+ * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ */
 trait Singleton
 {
     protected static ?self $instance = null;

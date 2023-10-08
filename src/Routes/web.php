@@ -3,7 +3,6 @@
 namespace App\Routes;
 
 use App\Kernel\Router\Route;
-use App\Presentation\Controllers\IndexController;
+use App\Presentation\Controllers\MovieController;
 
-Route::get('/', IndexController::class, 'index');
-Route::get('/test', IndexController::class, 'index');
+Route::get('/movies', MovieController::class, 'list');

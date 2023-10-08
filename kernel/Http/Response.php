@@ -2,6 +2,11 @@
 
 namespace App\Kernel\Http;
 
+/**
+ * Description of Response
+ *
+ * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ */
 class Response
 {
     public function json($data, int $status = 200): void

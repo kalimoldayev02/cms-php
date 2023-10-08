@@ -2,6 +2,11 @@
 
 namespace App\Kernel\System;
 
+/**
+ * Description of Config
+ *
+ * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ */
 class Config
 {
     use Singleton;

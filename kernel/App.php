@@ -7,6 +7,11 @@ use App\Kernel\Http\Request;
 use App\Kernel\Http\Response;
 use App\Kernel\Router\Router;
 
+/**
+ * Description of App
+ *
+ * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ */
 class App
 {
     /**

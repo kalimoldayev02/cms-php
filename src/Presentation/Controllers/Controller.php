@@ -7,7 +7,9 @@ use App\Kernel\Http\Request;
 use App\Kernel\Http\Response;
 
 /**
- * абстракный класс для контроллера
+ * Description of Controller (Базовый класс для контроллеров)
+ *
+ * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
  */
 abstract class Controller
 {

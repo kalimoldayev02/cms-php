@@ -4,6 +4,11 @@ namespace App\Kernel\Http;
 
 use App\Kernel\Validator\Validator;
 
+/**
+ * Description of Request
+ *
+ * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ */
 class Request
 {
     protected function __construct(

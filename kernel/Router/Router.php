@@ -2,12 +2,17 @@
 
 namespace App\Kernel\Router;
 
-use App\Controller\Controller;
+use App\Presentation\Controllers\Controller;
 use App\Kernel\Http\Redirect;
 use App\Kernel\Http\Request;
 use App\Kernel\System\Json;
 use App\Kernel\Http\Response;
 
+/**
+ * Description of Router
+ *
+ * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ */
 class Router
 {
     public function __construct(

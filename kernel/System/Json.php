@@ -2,6 +2,11 @@
 
 namespace App\Kernel\System;
 
+/**
+ * Description of Json
+ *
+ * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ */
 final class Json
 {
     final public static function jsonEncode($value): string

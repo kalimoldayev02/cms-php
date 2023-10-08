@@ -3,7 +3,9 @@
 namespace App\Kernel\Router;
 
 /**
- *  базаый класс для обработки запросов
+ * Description of Route (Базовый класс для обработки запросов)
+ *
+ * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
  */
 class Route
 {
