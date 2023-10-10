@@ -3,3 +3,4 @@
 composer.lock
 .env
 /db
+/config/db.php

@@ -16,15 +16,12 @@ class Config
     protected static function execute()
     {
         self::$configs = [
-            'routes' => include_once APP_PATH . '/config/routes.php',
+            'db' => include_once APP_PATH . '/config/db.php',
         ];
     }
 
-    public function getRoutesConfig($test = false)
+    public function get(string $key): mixed
     {
-        if (isset(self::$configs['routes'])) {
-            return self::$configs['routes'];
-        };
-        return [];
+        return self::$configs[$key] ?? null;
     }
 }
