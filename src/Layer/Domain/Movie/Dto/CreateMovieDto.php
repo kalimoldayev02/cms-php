@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Domain\Movie\Dto;
+namespace App\Layer\Domain\Movie\Dto;
 
 /**
- * Description of CreateMovieDto
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class CreateMovieDto
+ * @package App\Layer\Domain\Movie\Dto
  */
 class CreateMovieDto
 {

@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Kernel\Http;
+namespace App\Core\Http;
 
-use App\Kernel\Validator\Validator;
+use App\Core\Validator\Validator;
 
 /**
- * Description of Request
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class Request
+ * @package App\Core\Http
  */
 class Request
 {

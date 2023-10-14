@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Kernel\Router;
+namespace App\Core\Router;
 
 /**
- * Description of Route (Базовый класс для обработки запросов)
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class Route
+ * @package App\Core\Http
  */
 class Route
 {

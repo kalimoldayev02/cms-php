@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Db;
+namespace App\Core\Database;
 
 /**
- * Description of DriverInterface
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Interface DriverInterface
+ * @package App\Core\Database
  */
 interface DriverInterface
 {

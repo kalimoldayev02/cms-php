@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Kernel\Validator;
+namespace App\Core\Validator;
 
 /**
- * Description of Validator
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class Validator
+ * @package App\Core\Validator
  */
 class Validator
 {

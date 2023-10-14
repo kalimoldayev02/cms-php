@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Kernel\Http;
+namespace App\Core\Http;
 
 /**
- * Description of Response
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class Response
+ * @package App\Core\Http
  */
 class Response
 {

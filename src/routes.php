@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Routes;
+namespace App\Layer\Routes;
 
-use App\Kernel\Router\Route;
-use App\Presentation\Controllers\MovieController;
+use App\Core\Router\Route;
+use App\Layer\Presentation\Controllers\MovieController;
 
 Route::get('/movies', MovieController::class, 'list');
 Route::post('/movies', MovieController::class, 'create');

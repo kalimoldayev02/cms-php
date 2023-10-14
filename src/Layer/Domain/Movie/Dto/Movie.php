@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Domain\Movie\Entity;
+namespace App\Layer\Domain\Movie\Entity;
 
 /**
- * Description of Movie
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class Movie
+ * @package App\Layer\Domain\Movie\Dto
  */
 class Movie
 {

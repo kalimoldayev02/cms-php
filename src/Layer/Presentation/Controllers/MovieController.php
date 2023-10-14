@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Presentation\Controllers;
+namespace App\Layer\Presentation\Controllers;
 
 /**
- * Description of MovieController
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class MovieController
+ * @package App\Layer\Presentation\Controllers
  */
 class MovieController extends Controller
 {

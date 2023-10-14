@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Db;
+namespace App\Core\Database;
 
 /**
- * Description of Mysql
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class DriverInterface
+ * @package App\Core\Database
  */
 class Mysql implements DriverInterface
 {

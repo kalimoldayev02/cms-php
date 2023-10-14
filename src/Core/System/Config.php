@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Kernel\System;
+namespace App\Core\System;
 
 /**
- * Description of Config
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class Config
+ * @package App\Core\System
  */
 class Config
 {

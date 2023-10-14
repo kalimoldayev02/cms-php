@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Kernel\Http;
+namespace App\Core\Http;
 
 /**
- * Description of Redirect
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class Redirect
+ * @package App\Core\Http
  */
 class Redirect
 {

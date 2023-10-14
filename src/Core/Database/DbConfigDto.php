@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Db;
+namespace App\Core\Database;
 
 /**
- * Description of DbConfigDto
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class DbConfigDto
+ * @package App\Core\Database
  */
 class DbConfigDto
 {

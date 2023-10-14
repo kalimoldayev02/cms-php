@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Kernel;
+namespace App\Core;
 
-use App\Kernel\Http\Redirect;
-use App\Kernel\Http\Request;
-use App\Kernel\Http\Response;
-use App\Kernel\Router\Router;
+use App\Core\Http\Redirect;
+use App\Core\Http\Request;
+use App\Core\Http\Response;
+use App\Core\Router\Router;
 
 /**
- * Description of App
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class App
+ * @package App\Core
  */
 class App
 {

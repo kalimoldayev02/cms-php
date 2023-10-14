@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Kernel\System;
+namespace App\Core\System;
 
 /**
- * Description of Singleton
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Trait Json
+ * @package App\Core\System
  */
 trait Singleton
 {

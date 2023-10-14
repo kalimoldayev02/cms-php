@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Kernel\System;
+namespace App\Core\System;
 
 /**
- * Description of Json
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class Json
+ * @package App\Core\System
  */
 final class Json
 {

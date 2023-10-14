@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Kernel\Router;
+namespace App\Core\Router;
 
-use App\Presentation\Controllers\Controller;
-use App\Kernel\Http\Redirect;
-use App\Kernel\Http\Request;
-use App\Kernel\System\Json;
-use App\Kernel\Http\Response;
+use App\Layer\Presentation\Controllers\Controller;
+use App\Core\Http\Redirect;
+use App\Core\Http\Request;
+use App\Core\System\Json;
+use App\Core\Http\Response;
 
 /**
- * Description of Router
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class Router
+ * @package App\Core\Http
  */
 class Router
 {

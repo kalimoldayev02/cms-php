@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Db;
+namespace App\Core\Database;
 
-use App\Kernel\System\Config;
+use App\Core\System\Config;
 
 /**
- * Description of DriverFactory
- *
- * @author Alisher Kalimoldayev <kalimoldayev02@gmail.com>
+ * Class DriverFactory
+ * @package App\Core\Database
  */
 class DriverFactory
 {
