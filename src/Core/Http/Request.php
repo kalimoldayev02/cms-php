@@ -14,8 +14,6 @@ class Request
         private readonly array $get,
         private readonly array $post,
         private readonly array $server,
-        private readonly array $files,
-        private readonly array $cookies,
         private Validator $validator,
     )
     {
@@ -23,7 +21,7 @@ class Request
 
     public static function make(Validator $validator): static
     {
-        return new static($_GET, $_POST, $_SERVER, $_FILES, $_COOKIE, $validator);
+        return new static($_GET ?? [], $_POST ?? [], $_SERVER ?? [], $validator);
     }
 
     public function getUri(): string

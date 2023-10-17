@@ -2,18 +2,21 @@
 
 namespace App\Layer\Presentation\Controllers;
 
+use App\Core\Http\Controller;
+use App\Layer\Domain\Article\Dto\CreateArticleDto;
+
 /**
- * Class MovieController
+ * Class ArticleController
  * @package App\Layer\Presentation\Controllers
  */
-class MovieController extends Controller
+class ArticleController extends Controller
 {
     public function list()
     {
         $list = [
             [
                 'id' => 1,
-                'title' => 'Test movie',
+                'title' => 'Test article',
                 'description' => 'Test description'
             ]
         ];
@@ -23,14 +26,15 @@ class MovieController extends Controller
 
     public function create()
     {
-        $rules = include_once APP_PATH . '/src/Presentation/Request/Movie/CreateRequest.php';
+        $rules = include_once APP_PATH . '/src/Layer/Presentation/Request/Article/CreateRequest.php';
         $isValid = $this->request->validate($rules);
 
         if (!$isValid) {
             $this->response->json($this->request->getErrors());
         }
 
-        dd($this->request->validated());
+        $createDto = new CreateArticleDto($this->request->input('title'), $this->request->input('description'));
+
         $this->response->json([
             'id' => 1
         ]);

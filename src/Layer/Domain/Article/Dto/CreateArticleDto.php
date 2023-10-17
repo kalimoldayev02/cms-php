@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Layer\Domain\Movie\Dto;
+namespace App\Layer\Domain\Article\Dto;
 
 /**
- * Class CreateMovieDto
- * @package App\Layer\Domain\Movie\Dto
+ * Class CreateArticleDto
+ * @package App\Layer\Domain\Article\Dto
  */
-class CreateMovieDto
+class CreateArticleDto
 {
     public function __construct(
         public readonly string $title,

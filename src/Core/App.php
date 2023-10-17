@@ -13,10 +13,6 @@ use App\Core\Router\Router;
  */
 class App
 {
-    /**
-     * получаем все роуты с конфиг файла.
-     * и вызываем функцию
-     */
     public function run()
     {
         $validator = new Validator\Validator();

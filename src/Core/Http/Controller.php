@@ -1,10 +1,6 @@
 <?php
 
-namespace App\Layer\Presentation\Controllers;
-
-use App\Core\Http\Redirect;
-use App\Core\Http\Request;
-use App\Core\Http\Response;
+namespace App\Core\Http;
 
 /**
  * Class Controller

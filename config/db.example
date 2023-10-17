@@ -1,0 +1,10 @@
+<?php
+
+return [
+    'driver' => 'mysql',
+    'host' => 'cms-db',
+    'port' => '3306',
+    'database' => 'cms-php',
+    'username' => 'root',
+    'password' => 'root',
+];

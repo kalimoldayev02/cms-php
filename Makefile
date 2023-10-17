@@ -1,4 +1,4 @@
-PHP_FPM_IMAGE = app
+PHP_FPM_IMAGE = cms-app
 
 up:
 	docker-compose up -d
