@@ -8,6 +8,8 @@ namespace App\Core\Database;
  */
 class Mysql implements DriverInterface
 {
+    private ?string $queryString = null;
+
     /**
      * @var \PDO
      */
@@ -17,11 +19,8 @@ class Mysql implements DriverInterface
     public function connect(DbConfigDto $dto): void
     {
         try {
-            $this->pdo = new \PDO(
-                "$dto->driver:host=$dto->host;port=$dto->port;dbname=$dto->database;charset=$dto->charset",
-                $dto->username,
-                $dto->password
-            );
+            $dsn = "$dto->driver:host=$dto->host;port=$dto->port;dbname=$dto->database";
+            $this->pdo = new \PDO($dsn, $dto->username, $dto->password);
             $this->isConnected = true;
         } catch (\PDOException $exception) {
             $this->isConnected = false;
@@ -32,6 +31,27 @@ class Mysql implements DriverInterface
 
     public function disconnect(): void
     {
-        // TODO: Implement disconnect() method.
+
+    }
+
+    public function execute(?array $bind): DriverInterface
+    {
+        return $this;
+    }
+
+    public function select(string $query): DriverInterface
+    {
+        $this->queryString .= $query . ' ';
+        return $this;
+    }
+
+    public function getQueryString(): ?string
+    {
+        return $this->queryString;
+    }
+
+    public function refreshQueryString(): void
+    {
+        $this->queryString = null;
     }
 }

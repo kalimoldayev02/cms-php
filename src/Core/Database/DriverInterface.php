@@ -18,4 +18,23 @@ interface DriverInterface
      * @return void
      */
     public function disconnect(): void;
+
+    /**
+     * @param array|null $bind
+     * @return DriverInterface
+     */
+    public function execute(?array $bind): DriverInterface;
+
+    /**
+     * @param string $query
+     * @return DriverInterface
+     */
+    public function select(string $query): DriverInterface;
+
+    /**
+     * @return string|null
+     */
+    public function getQueryString(): ?string;
+
+    public function refreshQueryString(): void;
 }

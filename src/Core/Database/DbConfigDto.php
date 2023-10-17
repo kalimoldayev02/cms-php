@@ -15,7 +15,6 @@ class DbConfigDto
      * @param string $database
      * @param string $username
      * @param string $password
-     * @param string $charset
      */
     public function __construct(
         public readonly string $driver,
@@ -24,7 +23,6 @@ class DbConfigDto
         public readonly string $database,
         public readonly string $username,
         public readonly string $password,
-        public readonly string $charset,
     )
     {
     }

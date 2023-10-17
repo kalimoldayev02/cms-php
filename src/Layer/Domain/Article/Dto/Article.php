@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Layer\Domain\Movie\Entity;
+namespace App\Layer\Domain\Article\Dto;
 
 /**
- * Class Movie
- * @package App\Layer\Domain\Movie\Dto
+ * Class Article
+ * @package App\Layer\Domain\Article\Dto
  */
-class Movie
+class Article
 {
     public function __construct(
         private ?int   $id,

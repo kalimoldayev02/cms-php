@@ -16,19 +16,19 @@ class DriverFactory
     {
     }
 
-    public static function make(string $driver = 'mysql')
+    public static function make(string $driver = 'mysql'): DriverInterface
     {
-        if (!isset(self::$instance[$driver])) {
-            $config = Config::getInstance()->get('db');
-            $dbConfigDto = new DbConfigDto(
-                $config['driver'],
-                $config['host'],
-                $config['port'],
-                $config['database'],
-                $config['username'],
-                $config['password']
-            );
+        $config = Config::getInstance()->get('db');
+        $dbConfigDto = new DbConfigDto(
+            $config['driver'],
+            $config['host'],
+            $config['port'],
+            $config['database'],
+            $config['username'],
+            $config['password'],
+        );
 
+        if (!isset(self::$instance[$driver])) {
             self::$instance[$driver] = match ($driver) {
                 'mysql' => new Mysql($dbConfigDto),
             };
