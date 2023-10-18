@@ -36,8 +36,17 @@ class ArticleController extends Controller
 
         $createDto = new CreateArticleDto($this->request->input('title'), $this->request->input('description'));
 
+        DriverFactory::make()->prepare('INSERT INTO')
+            ->prepare('articles')
+            ->prepare("(title, description)")
+            ->prepare('VALUES')
+            ->prepare('(:title, :description)')
+            ->execute(['title' => $createDto->title, 'description' => $createDto->description]);
+
+        $lastId = DriverFactory::make()->prepare('SELECT LAST_INSERT_ID() AS lastId')->execute()->fetch('lastId');
+
         $this->response->json([
-            'id' => 1
+            'id' => $lastId
         ]);
     }
 }

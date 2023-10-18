@@ -14,4 +14,12 @@ class CreateArticleDto
     )
     {
     }
+
+    public function getFields(): array
+    {
+        return [
+            'title' => $this->title,
+            'description' => $this->description,
+        ];
+    }
 }

@@ -19,6 +19,7 @@ class DriverFactory
     public static function make(string $driver = 'mysql'): DriverInterface
     {
         $config = Config::getInstance()->get('db');
+
         $dbConfigDto = new DbConfigDto(
             $config['driver'],
             $config['host'],

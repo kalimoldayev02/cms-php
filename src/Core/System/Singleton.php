@@ -26,9 +26,9 @@ trait Singleton
     {
         if (!self::$instance) {
             self::$instance = new static();
+            self::execute();
         }
 
-        self::execute();
         return self::$instance;
     }
 }

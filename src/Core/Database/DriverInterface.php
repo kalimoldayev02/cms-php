@@ -20,21 +20,34 @@ interface DriverInterface
     public function disconnect(): void;
 
     /**
-     * @param array|null $bind
+     * @param array|null $params
      * @return DriverInterface
      */
-    public function execute(?array $bind): DriverInterface;
+    public function execute(?array $params = null): DriverInterface;
 
     /**
      * @param string $query
      * @return DriverInterface
      */
-    public function select(string $query): DriverInterface;
+    public function prepare(string $query): DriverInterface;
 
     /**
      * @return string|null
      */
     public function getQueryString(): ?string;
 
+    /**
+     * @return void
+     */
     public function refreshQueryString(): void;
+
+    /**
+     * @return array
+     */
+    public function fetchAll(): array;
+
+    /**
+     * @return array|string
+     */
+    public function fetch(?string $key = null): array|string;
 }
