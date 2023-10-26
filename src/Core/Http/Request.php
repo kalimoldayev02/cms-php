@@ -49,9 +49,9 @@ class Request
         return $this->post[$key] ?? $this->get[$key] ?? $default;
     }
 
-    public function validate(array $rules): bool
+    public function validate(array $rules, string $table = null): bool
     {
-        return $this->validator->validate($this->post(), $rules);
+        return $this->validator->validate($this->post(), $rules, $table);
     }
 
     public function validated(): array

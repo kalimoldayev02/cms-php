@@ -2,10 +2,8 @@
 
 namespace App\Core\Router;
 
-use App\Layer\Presentation\Controllers\Controller;
 use App\Core\Http\Redirect;
 use App\Core\Http\Request;
-use App\Core\System\Json;
 use App\Core\Http\Response;
 
 /**
@@ -48,8 +46,8 @@ class Router
 
     private function notFound(): void
     {
-        header('Content-type: application/json');
-        echo Json::jsonEncode('404 | not found');
-        exit;
+        $this->response->json([
+            '404 | not found'
+        ], 404);
     }
 }
